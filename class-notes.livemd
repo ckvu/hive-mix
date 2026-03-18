@@ -1,0 +1,91 @@
+# CRC: input |> construct |> reduce |> convert
+
+## data type definition.
+
+```elixir
+defmodule Counter do
+  # construct
+  def new(input) do
+    String.to_integer(input)
+  end
+
+  # reduce
+  def add(acc, number) do
+    acc + number
+  end
+
+  # convert
+  def show(acc) do
+    "The ants arrrr is #{acc}"
+  end
+end
+```
+
+```elixir
+input = "42"
+```
+
+```elixir
+import Counter
+
+input 
+|> new() 
+|> add(1) 
+|> add(1) 
+|> add(-1) 
+|> show()
+```
+
+```elixir
+input = "0"
+list_of_numbers = [1, 2, 3]
+Enum.reduce(list_of_numbers, Counter.new(input), fn i, acc -> Counter.add(acc, i) end) |> Counter.show()
+```
+
+```elixir
+[first, second, third] = list_of_numbers
+input 
+|> Counter.new()
+|> Counter.add(first)
+|> Counter.add(second)
+|> Counter.add(third)
+|> Counter.show()
+```
+
+```elixir
+
+
+```
+
+## Workshop Goals
+
+Topics (ADD)
+
+* Blind spots
+  * [x] mutability
+  * [ ] keyword list
+  * [ ] sigils
+  * [ ] for comprehension
+  * [ ] strings/charlists
+* OTP and Behavior
+  * [x] Base Elixir (counter core)
+  * [ ] GenServers 
+    * [ ] Supervision
+    * [ ] Behaviours
+* Phoenix Lifecycle
+  * [ ] Endpoints
+  * [ ] Application
+  * [ ] GraphQL
+    ```
+    - [ ] Batch
+    ```
+* LLM
+  * [ ] throw it away
+  * [ ] Red/Green indicators
+  * [ ] Skills
+  * [ ] Usage Rules
+  * [ ] Tidewave
+
+<!-- livebook:{"break_markdown":true} -->
+
+
